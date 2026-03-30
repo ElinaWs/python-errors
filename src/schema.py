@@ -3,9 +3,11 @@ from datetime import datetime
 from pydantic import BaseModel
 
 
-class UserSchema(BaseModel):
+class ProductSchema(BaseModel):
     id: int
     name: str
-    age: int
-    gender: str = "female"
+    price: float
     created_at: datetime | None = None
+
+    class Config:
+        from_attributes = True #добавление Config
